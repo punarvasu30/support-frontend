@@ -1,10 +1,10 @@
-const API_BASE = "http://localhost:8080";
+const API_BASE = "https://api-gateway-service-kfn2.onrender.com";
 
 function authHeader() {
   const token = localStorage.getItem("token");
   return {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json" ,
+    "Authorization": `Bearer ${token}`,
   };
 }
 

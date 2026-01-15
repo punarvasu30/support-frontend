@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserFromToken } from "../auth/jwtUtils";
+import { getUserFromToken } from "../auth/JwtUtils";
 import { getMyTickets } from "../api/ticketApi";
 import { Link } from "react-router-dom";
 
