@@ -1,12 +1,12 @@
 const AUTH_BASE_URL = "https://auth-service-gztr.onrender.com/auth";
 
-export async function registerUser(email, password) {
+export async function registerUser(name, email, password) {
   const response = await fetch(`${AUTH_BASE_URL}/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password , name}),
+    body: JSON.stringify({ email, password, name }),
   });
 
   if (!response.ok) {

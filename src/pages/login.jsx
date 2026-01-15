@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/authApi";
 
 function Login() {
@@ -6,13 +7,19 @@ function Login() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const token = await loginUser(email, password);
       localStorage.setItem("jwt", token);
+
       setMessage("Login successful ✅");
+
+      // 🔥 Redirect to dashboard
+      navigate("/dashboard");
     } catch (err) {
       setMessage(err.message);
     }
@@ -29,8 +36,10 @@ function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          style={{ display: "block", marginBottom: "10px" }}
         />
+
+        <br />
+        <br />
 
         <input
           type="password"
@@ -38,8 +47,10 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          style={{ display: "block", marginBottom: "10px" }}
         />
+
+        <br />
+        <br />
 
         <button type="submit">Login</button>
       </form>
