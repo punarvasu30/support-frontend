@@ -1,4 +1,4 @@
-const AUTH_BASE_URL = "https://auth-service-gztr.onrender.com/auth";
+const AUTH_BASE_URL = "https://api-gateway-service-kfn2.onrender.com/auth";
 
 export async function registerUser(name, email, password) {
   const response = await fetch(`${AUTH_BASE_URL}/register`, {
